@@ -72,4 +72,4 @@ def article_page(url):
 
 if __name__ == "__main__":
     db.create_all()
-    app.run(debug=True, port=5050)
+    app.run(debug=True)

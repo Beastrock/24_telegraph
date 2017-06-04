@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, abort, redirect, make_response, jsonify
+from flask import Flask, render_template, request, abort, make_response, jsonify
 from flask_sqlalchemy import SQLAlchemy
 import datetime
 import logging
@@ -55,6 +55,8 @@ def handle_article_data():
     response.set_cookie('user_signature', signature)
     return response
 
+# post запрос на edit у статьи остаётся ёё исходный урл, а остальное меняется
+
 
 @app.route("/<url>")
 def article_page(url):
@@ -69,4 +71,5 @@ def article_page(url):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    db.create_all()
+    app.run(debug=True, port=5050)
